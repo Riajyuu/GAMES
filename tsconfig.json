@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es2016",
+        "outDir": "./dist/",
+        "rootDir": "./src/",
+        "module": "esnext"
+    }
+}

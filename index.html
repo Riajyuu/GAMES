@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>0x01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="thanksto">
+        <p>
+            Thanks：Modify from
+            <a href="https://github.com/winkerVSbecks/a-triangle-everyday/tree/master/triangle-lost-in-space">@winkerVSbecks</a>
+            (MIT Licence)
+        </p>
+        <p>
+            Music
+            <i>Loopliness</i>
+            is authorized by
+            <a href="https://ccoooss.com/about-me">ClassicOldSong</a>
+        </p>
+    </div>
+    <div id="score">
+        分数:
+        <span></span>
+    </div>
+    <div id="gameover">游戏结束
+        <br />
+        <a href="?">重新开始</a>
+    </div>
+    <div class="progress">
+        <div class="background"></div>
+        <div class="value"></div>
+    </div>
+    <div id="god"></div>
+    <canvas id="triangle-lost-in-space" resize="true"></canvas>
+    <script src="./paper-full.min.js"></script>
+    <script src="./dist/index.js"></script>
+    <audio src="./bgm.mp3" loop autoplay hidden id="bgm"></audio>
+</body>
+
+</html>
