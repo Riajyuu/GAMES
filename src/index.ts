@@ -14,6 +14,7 @@ class Game {
     score: number = 0
     private _health: number = 100
     dead = false
+    speedPrefix = 25
 
     public get health() { return this._health }
 
@@ -28,7 +29,8 @@ class Game {
     godMode = false
     autoHeal = setInterval(() => {
         if (this.health + 0.1 >= 100) { return }
-        this.health += 0.1
+        if (this.godMode) { this.health += 0.3 }
+        else { this.health += 0.1 }
     }, 100)
     constructor() {
         this.startGodMode(5000)
@@ -61,6 +63,9 @@ class Game {
     hurt(scale: number) {
         if (this.godMode === true) return
         this.health -= 27.5 * scale
+        if (this.health < 50) {
+            this.speedPrefix -= 5
+        }
         if (this.health <= 0) {
             this.onDead()
         } else {
@@ -107,7 +112,10 @@ function init() {
         if (game.dead) { return false }
         position = position.add((mousePos.subtract(position).divide(10)))
         const vector = (paper.view.center.subtract(position)).divide(10)
-        moveStars(vector.multiply(3))
+        /** Here we're going to set speed ourself */
+        moveStars(vector.normalize(
+            Math.max(game.score / 7.5 + game.speedPrefix, 25)
+        ).multiply(3))
         triangle.update()
     }
 
