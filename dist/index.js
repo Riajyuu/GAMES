@@ -95,7 +95,7 @@ Game.godMode = document.getElementById('god');
 const game = new Game;
 const SQRT_3 = Math.pow(3, 0.5);
 let triangle, D, mousePos, position;
-const count = 100;
+const count = 50;
 function init() {
     paper.setup('triangle-lost-in-space');
     D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
@@ -114,7 +114,8 @@ function init() {
         position = position.add((mousePos.subtract(position).divide(10)));
         const vector = (paper.view.center.subtract(position)).divide(10);
         /** Here we're going to set speed ourself */
-        moveStars(vector.normalize(Math.max(game.score / 7.5 + game.speedPrefix, 25)).multiply(3));
+        /** Speed = 1.5 * max( (score / 7.5) + prefix, 25 ) */
+        moveStars(vector.normalize(Math.max(game.score / 7.5 + game.speedPrefix, 25)).multiply(1.5));
         triangle.update();
     };
     Game.godMode.style.marginLeft = (paper.view.size.width - 60) / 2 + 'px';
@@ -216,7 +217,9 @@ function buildStars() {
         // The center position is a random point in the view:
         const center = paper.Point.random().multiply(paper.view.size);
         const placed = symbol.place(center);
-        placed.scale(i / count + 0.01);
+        // Size of the starts
+        placed.scale(0.7);
+        // placed.scale(i / count + 0.01)
         placed.data = {
             vector: new paper.Point({
                 angle: Math.random() * 360,

@@ -90,7 +90,7 @@ class Game {
 const game = new Game
 const SQRT_3 = Math.pow(3, 0.5)
 let triangle: Triangle, D: number, mousePos: Paper.Point, position: Paper.Point
-const count = 100
+const count = 50
 
 function init() {
     paper.setup('triangle-lost-in-space')
@@ -113,9 +113,10 @@ function init() {
         position = position.add((mousePos.subtract(position).divide(10)))
         const vector = (paper.view.center.subtract(position)).divide(10)
         /** Here we're going to set speed ourself */
+        /** Speed = 1.5 * max( (score / 7.5) + prefix, 25 ) */
         moveStars(vector.normalize(
             Math.max(game.score / 7.5 + game.speedPrefix, 25)
-        ).multiply(3))
+        ).multiply(1.5))
         triangle.update()
     }
 
@@ -236,7 +237,9 @@ function buildStars() {
         // The center position is a random point in the view:
         const center = paper.Point.random().multiply(<any>paper.view.size)
         const placed = symbol.place(center)
-        placed.scale(i / count + 0.01)
+        // Size of the starts
+        placed.scale(0.7)
+        // placed.scale(i / count + 0.01)
         placed.data = {
             vector: new paper.Point({
                 angle: Math.random() * 360,
