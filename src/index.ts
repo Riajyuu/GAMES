@@ -90,7 +90,7 @@ class Game {
 const game = new Game
 const SQRT_3 = Math.pow(3, 0.5)
 let triangle: Triangle, D: number, mousePos: Paper.Point, position: Paper.Point
-const count = 20
+const count = 5
 
 function init() {
     paper.setup('triangle-lost-in-space')
@@ -238,7 +238,7 @@ function buildStars() {
         const center = paper.Point.random().multiply(<any>paper.view.size)
         const placed = symbol.place(center)
         // Size of the starts
-        placed.scale(1.5)
+        placed.scale(2.5)
         // placed.scale(i / count + 0.01)
         placed.data = {
             vector: new paper.Point({

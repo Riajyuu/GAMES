@@ -95,7 +95,7 @@ Game.godMode = document.getElementById('god');
 const game = new Game;
 const SQRT_3 = Math.pow(3, 0.5);
 let triangle, D, mousePos, position;
-const count = 20;
+const count = 5;
 function init() {
     paper.setup('triangle-lost-in-space');
     D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
@@ -218,7 +218,7 @@ function buildStars() {
         const center = paper.Point.random().multiply(paper.view.size);
         const placed = symbol.place(center);
         // Size of the starts
-        placed.scale(1.5);
+        placed.scale(2.5);
         // placed.scale(i / count + 0.01)
         placed.data = {
             vector: new paper.Point({
