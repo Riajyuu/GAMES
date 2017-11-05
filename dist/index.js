@@ -115,7 +115,7 @@ function init() {
         const vector = (paper.view.center.subtract(position)).divide(10);
         /** Here we're going to set speed ourself */
         /** Speed = 1.5 * max( (score / 7.5) + prefix, 25 ) */
-        moveStars(vector.normalize(Math.max(game.score / 7.5 + game.speedPrefix, 25)).multiply(1.5));
+        moveStars(vector.normalize(Math.max(game.score / 7.5 + game.speedPrefix, 25)).multiply(1.5/3));
         triangle.update();
     };
     Game.godMode.style.marginLeft = (paper.view.size.width - 60) / 2 + 'px';
