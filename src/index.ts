@@ -90,7 +90,7 @@ class Game {
 const game = new Game
 const SQRT_3 = Math.pow(3, 0.5)
 let triangle: Triangle, D: number, mousePos: Paper.Point, position: Paper.Point
-const count = 35
+const count = 20
 
 function init() {
     paper.setup('triangle-lost-in-space')

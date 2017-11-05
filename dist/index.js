@@ -95,7 +95,7 @@ Game.godMode = document.getElementById('god');
 const game = new Game;
 const SQRT_3 = Math.pow(3, 0.5);
 let triangle, D, mousePos, position;
-const count = 35;
+const count = 20;
 function init() {
     paper.setup('triangle-lost-in-space');
     D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
