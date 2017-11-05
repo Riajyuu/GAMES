@@ -218,7 +218,7 @@ function buildStars() {
         const center = paper.Point.random().multiply(paper.view.size);
         const placed = symbol.place(center);
         // Size of the starts
-        placed.scale(2.5);
+        placed.scale(3.5);
         // placed.scale(i / count + 0.01)
         placed.data = {
             vector: new paper.Point({
